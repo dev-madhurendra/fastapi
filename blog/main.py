@@ -54,7 +54,7 @@ def get(id: int,response: Response, db: Session = Depends(get_db)):
 
 
 @app.delete('/blog/{id}', status_code=status.HTTP_204_NO_CONTENT)
-def delete_blog(id: int,response: Response, db: Session = Depends(get_db)):
+def delete_blog(id: int, db: Session = Depends(get_db)):
     blog = db.query(models.Blog).filter(models.Blog.id == id).first()
     if not blog:
         print('blog not found!')
@@ -63,3 +63,18 @@ def delete_blog(id: int,response: Response, db: Session = Depends(get_db)):
     db.commit()
     return {'detail': f'blog {id} deleted successfully !'}
 
+
+
+@app.put('/blogs/{id}', status_code=status.HTTP_202_ACCEPTED)
+def update_blog(id: int, request: Blog ,db: Session=Depends(get_db)):
+    blog = db.query(models.Blog).filter(models.Blog.id == id).first()
+    if not blog:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'Blog with ID {id} not found')
+    # blog.update({'title': 'updated title'})
+
+    # Update individual fields
+    for field, value in request.dict().items():
+        setattr(blog, field, value)
+
+    db.commit()
+    return {'message': 'Updated sucessfully !'}
