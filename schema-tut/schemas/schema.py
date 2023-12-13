@@ -1,6 +1,6 @@
 import enum
 from typing import List
-from pydantic import BaseModel, EmailStr, validator,Field
+from pydantic import BaseModel, EmailStr, constr, validator,Field
 
 # Define a Pydantic model (schema)
 class Item(BaseModel):
@@ -26,6 +26,7 @@ class Address(BaseModel):
 
 # Main model with validation and dependencies
 class User(BaseModel):
+    name: constr(min_length=3, max_length=50, regex="^[a-zA-Z0-9_-]+$")
     username: str = Field(...,min_length=3, max_length=50, pattern="^[a-zA-Z0-9_-]+$")
     email: EmailStr
     age: int = Field(...,gt=0)
