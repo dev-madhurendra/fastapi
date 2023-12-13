@@ -3,3 +3,4 @@ models-tut/models_env
 fastapi-intro/fastapi-env
 pydantic/pydantic_env
 blog/blog_env
+schema-tut/schema_env
