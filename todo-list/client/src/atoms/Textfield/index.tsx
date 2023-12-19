@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import { TextField, IconButton, InputAdornment } from '@mui/material'
-import VisibilityOn from '../../../../public/assets/icons/openEye.svg'
-import VisibilityOff from '../../../../public/assets/icons/eyeclose.svg'
-import IconComponent from '../icon'
+import { TextField } from '@mui/material'
 
 export enum TextFieldSize {
   SMALL = 'small',
@@ -29,8 +26,6 @@ const CustomTextField: React.FC<TextFieldPropsInterface> = ({
   borderRadius,
   
 }) => {
-  const [showPassword, setShowPassword] = useState(false)
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value)
   }

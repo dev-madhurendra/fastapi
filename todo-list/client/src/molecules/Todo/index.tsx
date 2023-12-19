@@ -21,8 +21,11 @@ const Todo: React.FC<ITodo> = ({ title, body, createdAt, isCompleted,backgroundC
     const limitedBody = body.length > 100 ? body.substring(0, 100) + '...' : body;
   
     const StyledDiv = styled('div')({
-        backgroundColor:backgroundColor,
-
+        backgroundColor:!isCompleted ? backgroundColor : "white",
+        backgroundImage: isCompleted ? 'url("https://clipart-library.com/images_k/check-mark-png-transparent/check-mark-png-transparent-9.png")' : 'none',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'right center'
     })
   return (
     <div onClick={onClick}>
@@ -34,11 +37,12 @@ const Todo: React.FC<ITodo> = ({ title, body, createdAt, isCompleted,backgroundC
                 <div>
                     {isShowIcons && 
                         <div className="icons-header">
-                            <img
+                           {!isCompleted &&  
+                           <img
                                 src="https://clipart-library.com/images_k/check-mark-png-transparent/check-mark-png-transparent-9.png"
                                 alt="Update Status"
                                 onClick={onUpdateStatus}
-                            />
+                            />}
                             <img
                                 src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png"
                                 alt="Delete Task"
@@ -59,11 +63,6 @@ const Todo: React.FC<ITodo> = ({ title, body, createdAt, isCompleted,backgroundC
                 <p>Description: {limitedBody}</p>
             </div>
         </StyledDiv>
-        <div>
-            <h3>
-                {isCompleted && "Completed" }
-            </h3>
-        </div>
     </div>
   );
 };

@@ -14,3 +14,5 @@ export const updateStatusTodo = (url, data) => {
     const res = axios.put(url, data);
     return res;
 }
+
+export const addTodo = (url,data) => axios.post(url,data)
