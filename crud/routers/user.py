@@ -1,8 +1,9 @@
 from fastapi import APIRouter, status
 from typing import List
-from routers.Oauth2 import get_current_user
+from middleware.Oauth2 import get_current_user
 from routers.blog import create_blog
 import schemas.usre_schema as schemas
+import schemas.blog_schema as blog_schemas
 from repository.user import *
 from fastapi import Depends
 from sqlalchemy.orm import Session
@@ -23,9 +24,9 @@ def reads(db: Session = Depends(get_db), get_current_user: schemas.ShowUser = De
 
 
 @router.get('/{id}', response_model=schemas.ShowUser, status_code=status.HTTP_200_OK)
-def read(id: int, db: Session = Depends(get_db)):
+def read(id: int, db: Session = Depends(get_db), get_current_user: schemas.ShowUser = Depends(get_current_user)):
     return get_user(id,db)
 
 @router.post('/{user_id}/blogs', response_model=schemas.Blog, status_code=status.HTTP_201_CREATED, tags=['blogs'])
-def create_blog_user(user_id: int,request: schemas.Blog, db: Session = Depends(get_db)):
+def create_blog_user(user_id: int,request: schemas.Blog, db: Session = Depends(get_db), get_current_user: blog_schemas.ResponseBlog = Depends(get_current_user)):
     return create_blog(user_id, request, db)
