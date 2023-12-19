@@ -3,7 +3,7 @@ import models.user_model as models
 from db.db_connection import get_db
 from fastapi.responses import JSONResponse
 from fastapi import Depends,status, HTTPException
-import schemas.usre_schema as schemas
+import schemas.user_schema as schemas
 from utils.hashing import Hash
 
 

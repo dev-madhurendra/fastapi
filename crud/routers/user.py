@@ -2,7 +2,7 @@ from fastapi import APIRouter, status
 from typing import List
 from middleware.Oauth2 import get_current_user
 from routers.blog import create_blog
-import schemas.usre_schema as schemas
+import schemas.user_schema as schemas
 import schemas.blog_schema as blog_schemas
 from repository.user import *
 from fastapi import Depends
