@@ -1,13 +1,17 @@
-from fastapi import Depends
+from fastapi import Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from db.db_connection import get_db
+import models.user as user_model
 import schemas.todo as schemas
 import models.todo as models
 from exceptions.exception import TodoNotFoundException
 
 
-def create(request: schemas.RequestTodo, db: Session = Depends(get_db)):
-    todo = models.Todo(**request.model_dump())
+def create(userId: int, request: schemas.RequestTodo, db: Session = Depends(get_db)):
+    is_user_exist = db.query(user_model.User).filter(user_model.User.id == userId).first()
+    if not is_user_exist:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User does not exist !")
+    todo = models.Todo(**request.model_dump(), user_id=userId)
     db.add(todo)
     db.commit()
     db.refresh(todo)

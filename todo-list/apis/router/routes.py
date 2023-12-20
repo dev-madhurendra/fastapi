@@ -1,15 +1,19 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
+from middleware.Oauth2 import get_current_user
 from db.db_connection import get_db
 import schemas.todo as schemas
+import schemas.user as user_schema
 import repository.todo as todo_repo
 
 router = APIRouter(tags=["todos"],prefix="/todos")
 
 
-@router.post("/", response_model=schemas.ResponseTodo)
-def create_todo(request: schemas.RequestTodo, db: Session = Depends(get_db)):
-    return todo_repo.create(request, db)
+
+@router.post("/user/{userId}", response_model=schemas.ResponseTodo)
+def create_todo(userId: int, request: schemas.RequestTodo, db: Session = Depends(get_db),get_current_user: user_schema.ShowUser = Depends(get_current_user)):
+    return todo_repo.create(userId, request, db)
+
 
 @router.get("/", response_model=list[schemas.ResponseTodo])
 def get_all_todos(db: Session = Depends(get_db)):

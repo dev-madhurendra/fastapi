@@ -16,7 +16,6 @@
 .icons-header {
     display: flex;
     gap: 10px;
-    /* display: none;  */
 }
 .icons-header img {
     cursor: pointer;

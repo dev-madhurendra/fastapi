@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from router import auth
+from router import user
 from router import routes as tood_routes
 from db.session import engine
 import models.todo as models
@@ -17,3 +19,5 @@ app.add_middleware(
 models.Base.metadata.create_all(bind=engine)
 
 app.include_router(tood_routes.router)
+app.include_router(auth.router)
+app.include_router(user.router)
