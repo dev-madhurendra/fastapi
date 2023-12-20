@@ -1,32 +1,38 @@
 .container {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-between;
+    /* flex-direction: column; */
     align-items: center;
     width: 100vw;
-    margin-top: 15vh;
-    gap: 3.125rem;
+    gap: 15rem;
+    /* margin: auto; */
     /* background-color: red; */
 }
 .header {
-    width: 80vw;
+    /* margin-top: 5em; */
     display: flex;
     justify-content: space-between;
     align-content: center;
+    /* background-color: red; */
+    /* margin-left: 100px; */
+    padding: 50px;
+    width: 100%;
+    
 }
 .todo-list {
-    width: 80vw;
+    width: 100%;
     /* background-color: red; */
+    /* margin-left: 100px; */
 }
 .searchInput {
     border: none;
     padding: 0 1rem;
     width: 20em;
-    height: 3em;
-    border-radius: 0.9em;
+    /* height: 3em; */
+    /* border-radius: 0.9em; */
     background: #ffeacc;
     color: black;
-    font: 1.5em century gothic, verdana, arial, sans-serif;
+    /* font: 1.5em century gothic, verdana, arial, sans-serif; */
 }
 
 .searchInput::placeholder {

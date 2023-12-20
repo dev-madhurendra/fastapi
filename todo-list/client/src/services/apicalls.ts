@@ -16,3 +16,9 @@ export const updateStatusTodo = (url, data) => {
 }
 
 export const addTodo = (url,data) => axios.post(url,data)
+
+export const register = (url,data) => axios.post(url,data)
+
+export const login = (url, data) => axios.post(url,data)
+
+export const getUser = (url) => axios.get(url)

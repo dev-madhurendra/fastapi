@@ -11,7 +11,7 @@ router = APIRouter(tags=["todos"],prefix="/todos")
 
 
 @router.post("/user/{userId}", response_model=schemas.ResponseTodo)
-def create_todo(userId: int, request: schemas.RequestTodo, db: Session = Depends(get_db),get_current_user: user_schema.ShowUser = Depends(get_current_user)):
+def create_todo(userId: int, request: schemas.RequestTodo, db: Session = Depends(get_db)):
     return todo_repo.create(userId, request, db)
 
 

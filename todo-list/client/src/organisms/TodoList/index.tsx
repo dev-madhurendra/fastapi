@@ -7,6 +7,7 @@ import { getTodos, removeTodo, updateStatusTodo,addTodo } from '../../services/a
 
 interface ITodoList {
     searchValue: string
+    id: string
 }
 
 const style = {
@@ -23,7 +24,7 @@ const style = {
   };
 
 const TodoList: React.FC = (props : ITodoList) => {
-  const [todoData,setTodoData] = React.useState(taskData)
+  const [todoData,setTodoData] = React.useState([])
   const [clickedIndex, setClickedIndex] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -37,12 +38,16 @@ const TodoList: React.FC = (props : ITodoList) => {
   };
 
   React.useEffect(() => {
-    getTodos(URL+"/todos").then((result) => {
-        setTodoData(result.data)
-    }).catch((err) => {
-        console.log(err); 
-    });
-  }, [])
+    if (props.id) {
+        getTodos(URL+"/users/"+props.id).then((result) => {
+            console.log(result.data)
+            setTodoData(result.data.todo)
+        }).catch((err) => {
+            console.log(err); 
+        });
+        
+    }
+  }, [props.id])
   
   const updateStatus = async (id) => {
     try {
@@ -85,7 +90,7 @@ const TodoList: React.FC = (props : ITodoList) => {
     if (task.trim() !== '' && description.trim() !== '') {
         
         try {
-            const res = await addTodo(URL + "/todos/", { title: task, body: description });
+            const res = await addTodo(URL + "/todos/user/" + props.id, { title: task, body: description });
       
             const updatedTodo = [...todoData,res.data]
             setTodoData(updatedTodo)
@@ -138,9 +143,9 @@ const TodoList: React.FC = (props : ITodoList) => {
                 </button>
             </Box>
         </Modal>
-      {props?.searchValue.length > 0 ? todoData.filter(todo => todo.title.toLowerCase().includes(props?.searchValue.toLowerCase())).map((todo, index) => (
+      {props?.searchValue.length > 0 ? todoData?.filter(todo => todo.title.toLowerCase().includes(props?.searchValue.toLowerCase()))?.map((todo, index) => (
         <Todo
-          key={index}
+          key={index}   
           {...todo}
           backgroundColor={lightColors[index % lightColors.length]}
           onClick={() => handleClick(index)}
@@ -149,7 +154,7 @@ const TodoList: React.FC = (props : ITodoList) => {
           isShowIcons={index === clickedIndex}
         />
       )) : 
-      todoData.map((todo, index) => (
+      todoData?.map((todo, index) => (
         <Todo
           key={index}
           {...todo}

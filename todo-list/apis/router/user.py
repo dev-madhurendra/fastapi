@@ -23,8 +23,12 @@ def reads(db: Session = Depends(get_db), get_current_user: schemas.ShowUser = De
 
 
 @router.get('/{id}', response_model=schemas.ShowUser, status_code=status.HTTP_200_OK)
-def read(id: int, db: Session = Depends(get_db), get_current_user: schemas.ShowUser = Depends(get_current_user)):
+def read(id: int, db: Session = Depends(get_db)):
     return get_user(id,db)
+
+@router.get("/current")
+def get_current_user(token: str):
+    return get_current_user(token)
 
 # @router.post('/{user_id}/blogs', response_model=schemas.Blog, status_code=status.HTTP_201_CREATED, tags=['blogs'])
 # def create_blog_user(user_id: int,request: schemas.Blog, db: Session = Depends(get_db), get_current_user: blog_schemas.ResponseBlog = Depends(get_current_user)):

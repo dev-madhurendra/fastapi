@@ -1,0 +1,53 @@
+.sidebar-container {
+    width: 15vw;
+    height: 99vh;
+    box-shadow: rgba(83, 78, 78, 0.24) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    text-align: center;
+    top: 0;
+    margin-left: 20px;
+    background-color: #eeafce;
+}
+img {
+    width: 30px;
+    height: 30px;
+}
+.greetings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.greetings-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 20px;
+    font-size: 20px;
+    gap: 20px;
+}
+.button-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    /* background-color: red; */
+    gap: 20px;
+}
+button {
+    margin-left: 5%;
+    width: 250px;
+    height: 50px;
+}
+.button-signout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
