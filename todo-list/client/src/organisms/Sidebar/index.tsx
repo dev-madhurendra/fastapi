@@ -34,12 +34,13 @@ const Sidebar: React.FC<ISidebar> = (props) => {
   const [currentTime, setCurrentTime] = useState<string>(formatTime());
 
   useEffect(() => {
-    // Update greeting dynamically
     const interval = setInterval(() => {
       setGreeting(getGreeting());
-    }, 60000); // Update every minute
-
+      setCurrentTime(formatTime());
+    }, 1000); 
+  
     return () => clearInterval(interval);
+  
   }, []);
 
   return (
