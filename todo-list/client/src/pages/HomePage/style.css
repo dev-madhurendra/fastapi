@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    margin-top: 15vh;
+    /* height: 100vh; */
+    gap: 3.125rem;
+    /* background-color: red; */
+}
+.header {
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+.todo-list {
+    width: 80vw;
+    /* background-color: red; */
+}
+.searchInput {
+    border: none;
+    padding: 0 1rem;
+    width: 20em;
+    height: 3em;
+    border-radius: 0.9em;
+    background: #ffeacc;
+    color: black;
+    font: 1.5em century gothic, verdana, arial, sans-serif;
+}
+
+.searchInput::placeholder {
+    opacity: 0.5;
+    font-size: 0.875em;
+}
+
+.searchInput:focus {
+    outline: none;
+    background: #ffeacc;
+}

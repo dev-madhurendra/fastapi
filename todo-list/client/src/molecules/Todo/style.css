@@ -1,0 +1,27 @@
+.container-main {
+    border-radius: 10px;    
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+    padding: 30px;
+}
+.container-main:hover .icons-header {
+    display: flex;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icons-header {
+    display: flex;
+    gap: 10px;
+    /* background-color: white; */
+    /* padding: 20px; */
+    /* display: none;  */
+}
+.icons-header img {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
