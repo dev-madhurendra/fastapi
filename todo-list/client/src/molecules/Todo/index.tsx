@@ -61,7 +61,6 @@ const Todo: React.FC<ITodo> = ({ title, body, createdAt, isCompleted,backgroundC
             <br />
             <div className="todo-container">
                 <h2>{limitedTitle}</h2>
-                <br />
                 <p><b>Description </b> : {limitedBody}</p>
                 
             </div>

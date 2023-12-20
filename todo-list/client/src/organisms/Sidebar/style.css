@@ -1,5 +1,5 @@
 .sidebar-container {
-    width: 15vw;
+    width: 20vw;
     height: 99vh;
     box-shadow: rgba(83, 78, 78, 0.24) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     border-radius: 10px;
@@ -12,7 +12,7 @@
     text-align: center;
     top: 0;
     margin-left: 20px;
-    background-color: #eeafce;
+    background-color: #f4ebeffe;
 }
 img {
     width: 30px;
@@ -41,8 +41,8 @@ img {
     gap: 20px;
 }
 button {
-    margin-left: 5%;
-    width: 250px;
+    margin-left: 15%;
+    width: 200px;
     height: 50px;
 }
 .button-signout {

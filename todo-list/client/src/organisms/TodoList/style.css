@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px; 
+    margin-left: 50px;
 }
 .add-todo {
     display: flex;
@@ -45,4 +46,36 @@ input:focus {
         grid-template-columns: auto; 
     }
 }
+  
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination {
+    list-style: none;
+    display: flex;
+  }
+  
+  .page-link {
+    padding: 10px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+    border-radius: 3px;
+  }
+  
+  .page-link:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Style the ellipsis */
+  .page-ellipsis {
+    padding: 10px;
+    margin: 0 5px;
+    color: #333;
+  }
   

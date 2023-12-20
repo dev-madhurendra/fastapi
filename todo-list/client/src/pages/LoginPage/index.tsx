@@ -8,7 +8,7 @@ const SignInPage = () => {
         <div className="image">
             <img src="https://www.tamirapharmacy.com/login/svg/admin-img.svg" />
         </div>
-        <div>
+        <div className="signup-container">
             <SignIn />
         </div>
     </div>

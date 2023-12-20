@@ -2,9 +2,11 @@
     display: flex;
     justify-content: space-evenly;
     align-content: center;
-    width: 100vw;
 }
 .image img {
     width: 800px;
     height: 800px;
+}
+.signup-container {
+    margin-left: -200px;
 }

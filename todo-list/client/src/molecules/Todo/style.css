@@ -2,9 +2,15 @@
     border-radius: 10px;    
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     cursor: pointer;
+    width: 350px;
     padding: 20px;
-    height: 250px;
+    height: 200px;
 }
+.todo-container {
+    /* background-color: red; */
+    padding: 10px;
+
+ }
 .container-main:hover .icons-header {
     display: flex;
 }
