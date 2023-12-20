@@ -146,7 +146,6 @@ const TodoList: React.FC = (props : ITodoList) => {
           onClick={() => handleClick(index)}
           onUpdateStatus={() => updateStatus(todo.id)}
           onDeleteTask={() => deleteTask(todo.id)}
-          onUpdateTask = {() => updatedTask(todo.id)}
           isShowIcons={index === clickedIndex}
         />
       )) : 

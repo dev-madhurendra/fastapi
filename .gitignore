@@ -8,3 +8,5 @@ db-connection/db_env
 .env
 crud/crud_env
 node_modules
+todo-list/apis/project_env
+.pytest_cache

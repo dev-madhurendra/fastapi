@@ -8,10 +8,16 @@ class CommonTodo(BaseModel):
     
 class ShowUserTodo(BaseModel):
     id: int
+      
 class ResponseTodo(CommonTodo):
     id: int
     createdAt: date
     creator:ShowUserTodo
+
+class ResponseTodo(CommonTodo):
+    id: int
+    createdAt: date
+
     class Config():
         from_attributes = True
 

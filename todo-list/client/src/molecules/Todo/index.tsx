@@ -16,7 +16,8 @@ export interface ITodo {
 
 
 
-const Todo: React.FC<ITodo> = ({ title, body, createdAt, isCompleted,backgroundColor,isShowIcons, onClick, onUpdateStatus, onDeleteTask, onUpdateTask }) => {
+
+const Todo: React.FC<ITodo> = ({ title, body, createdAt, isCompleted,backgroundColor,isShowIcons, onClick, onUpdateStatus, onDeleteTask }) => {
     const limitedTitle = title.length > 20 ? title.substring(0, 20) + '...' : title;
     const limitedBody = body.length > 100 ? body.substring(0, 100) + '...' : body;
   
@@ -62,6 +63,7 @@ const Todo: React.FC<ITodo> = ({ title, body, createdAt, isCompleted,backgroundC
                 <h2>{limitedTitle}</h2>
                 <br />
                 <p><b>Description </b> : {limitedBody}</p>
+                
             </div>
         </StyledDiv>
     </div>
